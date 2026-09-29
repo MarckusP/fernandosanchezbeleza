@@ -1,0 +1,7 @@
+# Só o site vai para o GitHub Pages. Ferramentas, capturas e originais ficam na máquina.
+fsb-ferramentas/
+.claude/
+node_modules/
+Thumbs.db
+desktop.ini
+.DS_Store

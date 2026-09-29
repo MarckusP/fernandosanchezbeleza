@@ -1,0 +1,729 @@
+/* ==========================================================================
+   Fernando Sanchez Beleza — novas seções de marca (prefixo fsb-)
+   Tipografia/escala replicadas do kit Elementor (post-3918):
+   Poppins · títulos de seção 36/30/24px (600) · texto 18/16/15px (400)
+   destaque 52/42/32px (600) · azul #5D91B1 · preto #000 · branco #FFF
+   Breakpoints: tablet <=1024px, mobile <=767px
+   ========================================================================== */
+
+.fsb-section,
+.fsb-qef,
+.fsb-lp-tagline,
+.fsb-equipe {
+  --fsb-blue: #5D91B1;
+  --fsb-blue-soft: rgba(93, 145, 177, .16);
+  --fsb-black: #000;
+  --fsb-white: #fff;
+  --fsb-grey: #E4E4E4;
+  --fsb-font: 'Poppins', sans-serif;
+  --fsb-fs-display: 52px;   /* primary */
+  --fsb-fs-title: 36px;     /* text */
+  --fsb-fs-lead: 20px;      /* secondary */
+  --fsb-fs-body: 18px;      /* accent */
+  --fsb-fs-small: 16px;
+  font-family: var(--fsb-font);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+.fsb-section *,
+.fsb-section *::before,
+.fsb-section *::after,
+.fsb-qef *,
+.fsb-qef *::before,
+.fsb-qef *::after { box-sizing: border-box; }
+
+/* resets com especificidade zero (não vencem as classes fsb-*) */
+:where(.fsb-section, .fsb-qef) :where(h2, h3, p, ul, li) {
+  font-family: var(--fsb-font);
+  margin: 0;
+  padding: 0;
+}
+:where(.fsb-section) img { max-width: 100%; height: auto; display: block; }
+
+@media (max-width: 1024px) {
+  .fsb-section, .fsb-qef, .fsb-lp-tagline, .fsb-equipe {
+    --fsb-fs-display: 42px;
+    --fsb-fs-title: 30px;
+    --fsb-fs-lead: 18px;
+    --fsb-fs-body: 16px;
+    --fsb-fs-small: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .fsb-section, .fsb-qef, .fsb-lp-tagline, .fsb-equipe {
+    --fsb-fs-display: 32px;
+    --fsb-fs-title: 24px;
+    --fsb-fs-lead: 16px;
+    --fsb-fs-body: 15px;
+    --fsb-fs-small: 14px;
+  }
+}
+
+/* ---------- Estrutura comum ---------- */
+.fsb-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 0;
+  overflow: hidden;
+}
+.fsb-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 1024px) { .fsb-section { padding: 50px 0; } }
+@media (max-width: 767px)  { .fsb-container { padding: 0 10px; } }
+
+.fsb-section .fsb-title {
+  font-size: var(--fsb-fs-title);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: none;
+  color: var(--fsb-blue);
+}
+.fsb-section .fsb-title--left { text-align: left; }
+
+.fsb-rule {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 24px auto 0;
+  border-radius: 3px;
+  background: var(--fsb-blue);
+}
+
+/* ---------- Home: bloco "Quem é Fernando Sanchez" (dentro do azul) ---------- */
+.fsb-qef {
+  width: 100%;
+  max-width: 760px;
+  margin: 50px auto 60px;
+  padding: 44px 0;
+  text-align: center;
+  color: var(--fsb-white);
+  border-top: 1px solid rgba(255, 255, 255, .35);
+  border-bottom: 1px solid rgba(255, 255, 255, .35);
+}
+.fsb-qef .fsb-qef__title {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  color: var(--fsb-white);
+}
+.fsb-qef__sub {
+  margin-top: 10px;
+  font-size: var(--fsb-fs-body);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--fsb-white);
+  opacity: .92;
+}
+.fsb-qef__text { margin-top: 28px; }
+.fsb-qef__text p {
+  font-size: var(--fsb-fs-small);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--fsb-white);
+}
+.fsb-qef__text p + p { margin-top: 16px; }
+.fsb-qef__text strong { font-weight: 600; }
+@media (max-width: 1024px) {
+  .fsb-qef { margin: 40px auto 44px; padding: 36px 0; }
+  .fsb-qef__title { font-size: 22px; }
+}
+@media (max-width: 767px) {
+  .fsb-qef { margin: 32px auto 36px; padding: 30px 6px; }
+  .fsb-qef__title { font-size: 19px; letter-spacing: .06em; }
+  .fsb-qef__text p { text-align: left; }
+}
+
+/* ---------- Home: Essência (manifesto, fundo preto) ---------- */
+.fsb-essencia { background: var(--fsb-black); color: var(--fsb-white); }
+.fsb-essencia .fsb-title { color: var(--fsb-white); max-width: 820px; margin: 0 auto; }
+
+.fsb-ess { max-width: 900px; margin: 64px auto 0; }
+.fsb-ess__opening { text-align: center; }
+.fsb-ess__kicker {
+  text-wrap: balance;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--fsb-grey);
+}
+.fsb-ess__lead {
+  text-wrap: balance;
+  margin-top: 10px;
+  font-size: var(--fsb-fs-title);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fsb-white);
+}
+.fsb-ess__statement {
+  margin: 64px auto 0;
+  text-align: center;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fsb-grey);
+}
+.fsb-ess__statement em {
+  text-wrap: balance;
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: var(--fsb-fs-display);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--fsb-blue);
+}
+.fsb-ess__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 64px;
+}
+.fsb-ess__card {
+  padding: 28px 30px;
+  border-left: 3px solid var(--fsb-blue);
+  border-radius: 0 24px 24px 0;
+  background: rgba(255, 255, 255, .06);
+  font-size: var(--fsb-fs-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--fsb-grey);
+}
+.fsb-ess__card strong { display: block; margin-top: 4px; font-weight: 600; color: var(--fsb-white); }
+.fsb-ess__turn { margin-top: 64px; text-align: center; }
+.fsb-ess__turn-a {
+  text-wrap: balance;
+  font-size: var(--fsb-fs-title);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fsb-white);
+}
+.fsb-ess__turn-b {
+  text-wrap: balance;
+  max-width: 720px;
+  margin: 16px auto 0;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--fsb-grey);
+}
+.fsb-ess__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+}
+.fsb-ess__body p {
+  font-size: var(--fsb-fs-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--fsb-grey);
+}
+@media (max-width: 1024px) {
+  .fsb-ess { margin-top: 44px; }
+  .fsb-ess__statement, .fsb-ess__pair, .fsb-ess__turn, .fsb-ess__body { margin-top: 44px; }
+  .fsb-ess__body { gap: 32px; padding-top: 32px; }
+}
+@media (max-width: 767px) {
+  .fsb-ess { margin-top: 32px; }
+  .fsb-ess__statement, .fsb-ess__pair, .fsb-ess__turn, .fsb-ess__body { margin-top: 36px; }
+  .fsb-ess__pair, .fsb-ess__body { grid-template-columns: 1fr; gap: 16px; }
+  .fsb-ess__card { padding: 20px 20px; }
+  .fsb-ess__body { padding-top: 28px; }
+}
+
+/* ---------- Home: Lumiess (tipografia, fundo claro) ---------- */
+.fsb-lumiess { background: #F2F2F2; color: var(--fsb-black); text-align: center; }
+.fsb-lumiess__head { text-align: center; }
+.fsb-section .fsb-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  font-size: 84px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--fsb-black);
+}
+.fsb-wordmark::before,
+.fsb-wordmark::after {
+  content: "";
+  flex: 1 1 0;
+  max-width: 140px;
+  height: 1px;
+  background: var(--fsb-blue);
+}
+.fsb-wordmark::after { margin-left: -.32em; } /* compensa o letter-spacing final */
+.fsb-lumiess__sub {
+  margin-top: 28px;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 500;
+  letter-spacing: .02em;
+  line-height: 1.5;
+  color: var(--fsb-blue);
+}
+.fsb-lumiess__body {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin: 56px auto 0;
+  text-align: left;
+}
+.fsb-lumiess__lead,
+.fsb-lumiess__note {
+  padding: 36px 40px;
+  border-radius: 50px;
+  font-size: var(--fsb-fs-body);
+  font-weight: 400;
+  line-height: 1.7;
+}
+.fsb-lumiess__lead { background: var(--fsb-white); color: var(--fsb-black); }
+.fsb-lumiess__note { background: var(--fsb-blue); color: var(--fsb-white); display: flex; align-items: center; }
+@media (max-width: 1024px) {
+  .fsb-section .fsb-wordmark { font-size: 60px; gap: 24px; }
+  .fsb-lumiess__body { margin-top: 40px; }
+  .fsb-lumiess__lead, .fsb-lumiess__note { padding: 28px 30px; border-radius: 40px; }
+}
+@media (max-width: 767px) {
+  .fsb-section .fsb-wordmark { display: block; font-size: 32px; letter-spacing: .24em; padding-left: .24em; }
+  .fsb-wordmark::before, .fsb-wordmark::after { display: none; }
+  .fsb-lumiess__sub { margin-top: 20px; }
+  .fsb-lumiess__body { grid-template-columns: 1fr; gap: 14px; margin-top: 30px; }
+  .fsb-lumiess__lead, .fsb-lumiess__note { padding: 24px 22px; border-radius: 30px; }
+}
+
+/* ---------- Visagismo (Home + LP) ---------- */
+.fsb-visagismo { background: var(--fsb-black); color: var(--fsb-white); }
+.fsb-visagismo::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: 50%;
+  width: 60%;
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  background: radial-gradient(closest-side, rgba(93, 145, 177, .22), rgba(93, 145, 177, 0));
+  pointer-events: none;
+}
+.fsb-visagismo__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 70px;
+  align-items: center;
+}
+.fsb-visagismo__media {
+  padding: 36px;
+  border: 1px solid rgba(93, 145, 177, .45);
+  border-radius: 50px;
+  background: rgba(93, 145, 177, .07);
+}
+.fsb-visagismo__media img { width: 100%; height: auto; }
+.fsb-visagismo__content .fsb-title { color: var(--fsb-white); }
+.fsb-visagismo__content p {
+  margin-top: 18px;
+  font-size: var(--fsb-fs-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--fsb-grey);
+}
+.fsb-visagismo__content .fsb-title + p { margin-top: 28px; }
+.fsb-visagismo__content .fsb-visagismo__emph {
+  margin-top: 28px;
+  font-size: var(--fsb-fs-lead);
+  line-height: 1.5;
+  color: var(--fsb-white);
+}
+.fsb-visagismo__emph strong { display: block; margin-top: 4px; font-weight: 600; color: var(--fsb-blue); }
+
+/* chips */
+.fsb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.fsb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fsb-white);
+}
+.fsb-chip::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fsb-blue);
+}
+
+/* CTA + botão (pílula, mesmo padrão dos botões do site) */
+.fsb-cta { margin-top: 36px; }
+.fsb-visagismo__content .fsb-cta__q {
+  margin: 0 0 16px;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--fsb-white);
+}
+.fsb-section .fsb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 6px 6px 6px 32px;
+  border: 1px solid var(--fsb-blue);
+  border-radius: 50px;
+  background: var(--fsb-blue);
+  font-family: var(--fsb-font);
+  font-size: var(--fsb-fs-small);
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  color: var(--fsb-white);
+  transition: all .4s ease;
+}
+.fsb-section .fsb-btn:hover, .fsb-section .fsb-btn:focus-visible { background: var(--fsb-white); color: var(--fsb-black); border-color: var(--fsb-white); }
+.fsb-btn:focus-visible { outline: 2px solid var(--fsb-white); outline-offset: 3px; }
+.fsb-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--fsb-white);
+  color: var(--fsb-blue);
+  transition: all .4s ease;
+}
+.fsb-btn:hover .fsb-btn__icon, .fsb-btn:focus-visible .fsb-btn__icon { background: var(--fsb-blue); color: var(--fsb-white); }
+
+/* variação compacta (LP) */
+.fsb-visagismo--lp { padding: 80px 0; }
+.fsb-visagismo--lp .fsb-visagismo__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 56px; }
+.fsb-visagismo--lp .fsb-visagismo__media { padding: 26px; border-radius: 40px; }
+.fsb-visagismo--lp .fsb-visagismo__content .fsb-visagismo__lead {
+  margin-top: 24px;
+  font-size: var(--fsb-fs-lead);
+  color: var(--fsb-white);
+}
+.fsb-visagismo--lp::before { left: auto; right: -10%; }
+
+@media (max-width: 1024px) {
+  .fsb-visagismo__grid { gap: 40px; }
+  .fsb-visagismo__media { padding: 26px; border-radius: 40px; }
+  .fsb-visagismo--lp { padding: 50px 0; }
+  .fsb-visagismo--lp .fsb-visagismo__grid { gap: 36px; }
+}
+@media (max-width: 767px) {
+  .fsb-visagismo__grid,
+  .fsb-visagismo--lp .fsb-visagismo__grid { grid-template-columns: 1fr; gap: 32px; }
+  .fsb-visagismo__media { width: 100%; max-width: 340px; margin: 0 auto; padding: 20px; border-radius: 30px; }
+  .fsb-visagismo--lp .fsb-visagismo__media { order: 2; max-width: 240px; padding: 16px; }
+  .fsb-visagismo__content { text-align: left; }
+  .fsb-visagismo__content .fsb-title { text-align: center; }
+  .fsb-chips { gap: 8px; }
+  .fsb-chip { padding: 7px 13px; font-size: 13px; }
+  .fsb-cta { margin-top: 28px; text-align: center; }
+  .fsb-cta .fsb-cta__q { text-align: center; }
+  .fsb-btn { padding-left: 24px; gap: 14px; text-align: left; }
+  .fsb-btn__icon { width: 40px; height: 40px; }
+}
+
+/* ---------- LP: tagline do hero ---------- */
+p.fsb-lp-tagline {
+  margin: 16px 0 0;
+  font-size: var(--fsb-fs-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: start;
+  color: #FAFAFA;
+}
+p.fsb-lp-tagline span { font-weight: 600; color: var(--fsb-blue); }
+@media (max-width: 1024px) { .fsb-lp-tagline { text-align: center; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fsb-btn, .fsb-btn__icon { transition: none; }
+}
+
+/* LP: selo giratório absoluto ultrapassava a largura no celular (gerava rolagem horizontal) */
+.elementor-9004 { overflow-x: clip; }
+
+/* Visagismo: foto com marcações (preenche a moldura; no celular fica maior para as legendas serem legíveis) */
+.fsb-visagismo .fsb-visagismo__media--foto { padding: 0; overflow: hidden; }
+.fsb-visagismo .fsb-visagismo__media--foto img { display: block; width: 100%; height: auto; }
+@media (max-width: 767px) {
+  .fsb-visagismo .fsb-visagismo__media--foto { max-width: 380px; }
+}
+
+/* ==========================================================================
+   Efeitos "luz de salão" (só nas seções fsb-*)
+   - Tudo é aprimoramento: sem JS, ou com "reduzir movimento", o conteúdo aparece normal.
+   - .fsb-fx (no <html>) é adicionada pelo fsb.js quando o movimento é permitido.
+   - .fsb-lit é adicionada à seção quando ela entra na tela (uma vez).
+   ========================================================================== */
+
+/* Essência: foco de luz azul que segue o mouse / a rolagem */
+.fsb-essencia::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(520px circle at var(--fx-x, 50%) var(--fx-y, 32%), rgba(93, 145, 177, .30), rgba(93, 145, 177, 0) 70%),
+    radial-gradient(900px circle at 50% 0%, rgba(93, 145, 177, .10), rgba(93, 145, 177, 0) 60%);
+  pointer-events: none;
+}
+.fsb-essencia .fsb-container { position: relative; z-index: 1; }
+
+/* cartões em vidro fosco sobre a luz */
+.fsb-ess__card {
+  border-top: 1px solid rgba(255, 255, 255, .10);
+  border-right: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .04);
+  background: rgba(255, 255, 255, .05);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+/* frase-manifesto: um brilho de luz atravessa o texto uma vez (as duas pontas do degradê são o azul da marca) */
+.fsb-ess__statement em {
+  background: linear-gradient(100deg, var(--fsb-blue) 0 38%, #EAF3F8 50%, var(--fsb-blue) 62% 100%);
+  background-size: 260% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fsb-fx .fsb-essencia.fsb-lit .fsb-ess__statement em { animation: fsb-sweep 2.4s .5s cubic-bezier(.4, 0, .2, 1) both; }
+@keyframes fsb-sweep { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* Visagismo: halo azul sob a foto + reflexo que atravessa a foto ao aparecer */
+.fsb-visagismo .fsb-visagismo__media--foto {
+  position: relative;
+  box-shadow: 0 40px 90px -40px rgba(93, 145, 177, .55), 0 0 0 1px rgba(93, 145, 177, .15);
+}
+.fsb-visagismo__media--foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, .22) 50%, rgba(255, 255, 255, 0) 62%);
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+.fsb-fx .fsb-visagismo.fsb-lit .fsb-visagismo__media--foto::after { animation: fsb-glint 1.8s 1s cubic-bezier(.4, 0, .2, 1) both; }
+@keyframes fsb-glint { to { transform: translateX(130%); } }
+
+/* etiquetas surgem uma a uma, como as marcações da foto */
+.fsb-fx .fsb-visagismo .fsb-chip {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease;
+  transition-delay: calc(var(--i, 0) * 80ms + .5s);
+}
+.fsb-fx .fsb-visagismo.fsb-lit .fsb-chip { opacity: 1; transform: none; }
+
+/* Lumiess: o nome entra aberto e desfocado e assenta em foco */
+.fsb-section .fsb-wordmark { --fsb-ls: .32em; letter-spacing: var(--fsb-ls); }
+@media (max-width: 767px) { .fsb-section .fsb-wordmark { --fsb-ls: .24em; } }
+.fsb-fx .fsb-lumiess .fsb-wordmark {
+  letter-spacing: calc(var(--fsb-ls) + .22em);
+  filter: blur(10px);
+  opacity: 0;
+  transition: letter-spacing 1.8s cubic-bezier(.2, .7, .2, 1), filter 1.4s ease, opacity 1.2s ease;
+}
+.fsb-fx .fsb-lumiess.fsb-lit .fsb-wordmark { letter-spacing: var(--fsb-ls); filter: none; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fsb-fx .fsb-essencia.fsb-lit .fsb-ess__statement em,
+  .fsb-fx .fsb-visagismo.fsb-lit .fsb-visagismo__media--foto::after { animation: none; }
+  .fsb-fx .fsb-visagismo .fsb-chip,
+  .fsb-fx .fsb-lumiess .fsb-wordmark { opacity: 1; transform: none; filter: none; letter-spacing: var(--fsb-ls, normal); transition: none; }
+}
+
+/* ---------- Home: Equipe (foto do salão + texto curto; substitui a grade de cargos) ---------- */
+.fsb-equipe {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+.fsb-equipe *, .fsb-equipe *::before, .fsb-equipe *::after { box-sizing: border-box; }
+.fsb-equipe__media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50px;
+  box-shadow: 0 40px 90px -45px rgba(93, 145, 177, .7);
+}
+.fsb-equipe__media img { display: block; width: 100%; height: auto; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+@media (hover: hover) { .fsb-equipe__media:hover img { transform: scale(1.03); } }
+.fsb-equipe .fsb-equipe__lead {
+  margin: 0;
+  font-family: var(--fsb-font);
+  font-size: clamp(22px, 2.1vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+  color: var(--fsb-blue);
+}
+.fsb-equipe .fsb-equipe__text {
+  margin: 18px 0 0;
+  font-family: var(--fsb-font);
+  font-size: var(--fsb-fs-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #000;
+}
+@media (max-width: 1024px) {
+  .fsb-equipe { gap: 36px; }
+  .fsb-equipe__media { border-radius: 40px; }
+}
+@media (max-width: 767px) {
+  .fsb-equipe { grid-template-columns: 1fr; gap: 26px; padding: 0 10px; }
+  .fsb-equipe__media { border-radius: 30px; }
+  .fsb-equipe .fsb-equipe__lead { text-align: center; }
+}
+
+/* Visagismo (desktop/tablet): foto fixa ao lado do texto enquanto se lê, sempre inteira na tela.
+   overflow: clip (e não hidden) para o position: sticky funcionar. */
+@media (min-width: 768px) {
+  .fsb-visagismo { overflow: hidden; overflow: clip; }
+  .fsb-visagismo .fsb-visagismo__grid { align-items: start; }
+  .fsb-visagismo .fsb-visagismo__media--foto {
+    position: sticky;
+    top: 120px;
+    width: 100%;
+    max-width: calc((100vh - 160px) * 2 / 3);
+    justify-self: center;
+  }
+  .fsb-visagismo__content { padding-top: 8px; }
+}
+
+/* Quem é Fernando: foto (a mesma da LP) ao lado da bio profissional */
+.fsb-qef:has(.fsb-qef__photo) {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  max-width: 1000px;
+  text-align: left;
+}
+.fsb-qef__photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, .55);
+}
+.fsb-qef__photo img { display: block; width: 100%; height: auto; }
+/* luz suave sobre a foto (ecoa a luz azul da própria foto) */
+.fsb-qef__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
+  background: radial-gradient(120% 70% at 0% 40%, rgba(93, 145, 177, .25), rgba(93, 145, 177, 0) 60%);
+  pointer-events: none;
+}
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__text p { text-align: left; }
+@media (max-width: 1024px) {
+  .fsb-qef:has(.fsb-qef__photo) { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 767px) {
+  .fsb-qef:has(.fsb-qef__photo) { grid-template-columns: 1fr; gap: 26px; text-align: center; }
+  .fsb-qef__photo { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 30px; }
+}
+
+/* Quem é Fernando: painel preto que continua o fundo da foto, com a mesma luz azul vinda da esquerda */
+.fsb-qef:has(.fsb-qef__photo) {
+  position: relative;
+  padding: 56px 56px 56px 0;
+  border: 0;
+  border-radius: 50px;
+  background:
+    radial-gradient(60% 90% at 0% 45%, rgba(0, 6, 65, .95), rgba(0, 6, 65, 0) 70%),
+    radial-gradient(40% 60% at 100% 0%, rgba(93, 145, 177, .18), rgba(93, 145, 177, 0) 70%),
+    #000;
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .6);
+  overflow: hidden;
+}
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo { border-radius: 0; box-shadow: none; overflow: visible; }
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo::after { display: none; }
+/* a foto se funde ao painel: bordas suavizadas até o preto */
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo img {
+  -webkit-mask-image: linear-gradient(to right, #000 75%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, #000 75%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+  mask-composite: intersect;
+}
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__sub { color: var(--fsb-blue); opacity: 1; }
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__text p { color: #E4E4E4; }
+.fsb-qef:has(.fsb-qef__photo) .fsb-qef__text strong { color: #fff; }
+@media (max-width: 1024px) {
+  .fsb-qef:has(.fsb-qef__photo) { padding: 40px 36px 40px 0; border-radius: 40px; }
+}
+@media (max-width: 767px) {
+  .fsb-qef:has(.fsb-qef__photo) {
+    padding: 0 20px 32px;
+    border-radius: 30px;
+    background:
+      radial-gradient(90% 40% at 0% 20%, rgba(0, 6, 65, .95), rgba(0, 6, 65, 0) 70%),
+      #000;
+  }
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo { max-width: 300px; border-radius: 0; }
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  }
+}
+/* desktop/tablet: a foto ocupa toda a altura da coluna esquerda, sem emendas */
+@media (min-width: 768px) {
+  .fsb-qef:has(.fsb-qef__photo) {
+    padding: 0;
+    align-items: stretch;
+    background: radial-gradient(45% 60% at 100% 0%, rgba(93, 145, 177, .18), rgba(93, 145, 177, 0) 70%), #000;
+  }
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo { height: 100%; }
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__photo img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
+    -webkit-mask-image: linear-gradient(to right, #000 70%, transparent), linear-gradient(to bottom, #000 82%, transparent);
+    mask-image: linear-gradient(to right, #000 70%, transparent), linear-gradient(to bottom, #000 82%, transparent);
+  }
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__body { padding: 56px 56px 56px 0; align-self: center; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fsb-qef:has(.fsb-qef__photo) .fsb-qef__body { padding: 40px 36px 40px 0; }
+}
