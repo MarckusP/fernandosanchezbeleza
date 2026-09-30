@@ -29,12 +29,14 @@
   function init() {
     // etiquetas do visagismo: índice para o atraso em cascata
     document.querySelectorAll('.fsb-visagismo .fsb-chip').forEach(function (c, i) { c.style.setProperty('--i', i); });
+    // trajetória: mesmo índice para a cascata dos marcos
+    document.querySelectorAll('.fsb-topics li').forEach(function (li, i) { li.style.setProperty('--i', i); });
 
     // a seção "acende" uma vez quando entra na tela
     var lit = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('fsb-lit'); lit.unobserve(e.target); } });
     }, { threshold: 0.25 });
-    document.querySelectorAll('.fsb-essencia, .fsb-visagismo, .fsb-lumiess').forEach(function (s) { lit.observe(s); });
+    document.querySelectorAll('.fsb-essencia, .fsb-visagismo, .fsb-lumiess, .fsb-topics').forEach(function (s) { lit.observe(s); });
 
     // Essência: foco de luz segue o mouse (desktop) ou a rolagem (toque), com suavização
     var sec = document.querySelector('.fsb-essencia');
