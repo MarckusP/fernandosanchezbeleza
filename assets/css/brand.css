@@ -557,22 +557,6 @@ p.fsb-lp-tagline span { font-weight: 600; color: var(--fsb-blue); }
 }
 .fsb-equipe__shot img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
 @media (hover: hover) { .fsb-equipe__shot:hover img { transform: scale(1.03); } }
-.fsb-placeholder-ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  background: #e5e5e5;
-  border: 2px dashed #b8b8b8;
-  text-align: center;
-}
-.fsb-placeholder-ph span {
-  font-family: var(--fsb-font);
-  font-size: 12px;
-  line-height: 1.5;
-  color: #6a6a6a;
-}
-.fsb-placeholder-ph code { display: inline-block; margin-top: 4px; font-size: 11px; color: #4a4a4a; }
 .fsb-equipe .fsb-equipe__lead {
   margin: 0;
   font-family: var(--fsb-font);
