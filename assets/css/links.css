@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Fernando Sanchez Beleza — página de links (/links/)
+   Paleta do site: azul #5D91B1 · preto #000 · branco #FFF · fonte Poppins
+   Botões: preenchimento que "varre" a partir do ponto de entrada do mouse
+   + atração magnética suave (assets/js/links.js)
+   ========================================================================== */
+
+:root {
+  --lk-blue: #5D91B1;
+  --lk-black: #000;
+  --lk-white: #fff;
+  --lk-muted: #b9c4cc;
+  --lk-font: 'Poppins', sans-serif;
+  --lk-ease: cubic-bezier(.45, 0, .25, 1);
+  /* troca de cor dos botões: lenta e macia */
+  --lk-soft: cubic-bezier(.37, 0, .63, 1);
+  --lk-sweep: .85s;   /* o preenchimento que se espalha */
+  --lk-fade: .6s;     /* cor do texto, borda e sombra */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--lk-black);
+  color: var(--lk-white);
+  font-family: var(--lk-font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* luz azul suave ao fundo (a mesma linguagem das seções da Home) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 50% 0%, rgba(93, 145, 177, .32), transparent 70%),
+    radial-gradient(50% 40% at 50% 100%, rgba(93, 145, 177, .14), transparent 70%);
+}
+
+.lk {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 56px 20px 40px;
+}
+
+/* ---------- Cabeçalho ---------- */
+.lk-head { text-align: center; }
+
+/* seletor de idioma (widget GTranslate do site) */
+.lk-lang {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 26px;
+}
+.lk-lang a.glink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 8px;
+  border: 1px solid rgba(93, 145, 177, .45);
+  border-radius: 100px;
+  font-family: var(--lk-font);
+  color: var(--lk-white) !important;
+  text-decoration: none;
+  transition: background .4s var(--lk-soft), border-color .4s var(--lk-soft);
+}
+.lk-lang a.glink img { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; opacity: 1; }
+.lk-lang a.glink span { margin: 0 !important; font-size: 12px !important; font-weight: 600; letter-spacing: .08em; color: var(--lk-white) !important; }
+.lk-lang a.glink:hover { border-color: var(--lk-blue); }
+.lk-lang a.glink.gt-current-lang { background: var(--lk-blue); border-color: var(--lk-blue); font-weight: 600; }
+.lk-lang a.glink:focus-visible { outline: 2px solid var(--lk-white); outline-offset: 2px; }
+
+.lk-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--lk-blue);
+  box-shadow: 0 0 0 6px rgba(93, 145, 177, .16), 0 12px 36px rgba(93, 145, 177, .28);
+  background: linear-gradient(160deg, rgba(93, 145, 177, .55), #0b141a 70%);
+}
+.lk-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+
+.lk-name {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--lk-white);
+}
+.lk-role {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--lk-blue);
+}
+.lk-tag {
+  max-width: 340px;
+  margin: 14px auto 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--lk-muted);
+}
+
+/* ---------- Grupos ---------- */
+.lk-group { margin-top: 36px; }
+
+.lk-label {
+  margin: 0 0 14px;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--lk-blue);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lk-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(93, 145, 177, .35);
+}
+
+.lk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+/* ---------- Botão ---------- */
+.lk-btn {
+  --mx: 0px;
+  --my: 0px;
+  --sx: 50%;
+  --sy: 50%;
+  --d: 700px;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--lk-white);
+  background: var(--lk-white);
+  color: var(--lk-black);
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  translate: var(--mx) var(--my);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
+  transition: box-shadow var(--lk-fade) var(--lk-soft), color var(--lk-fade) var(--lk-soft), border-color var(--lk-fade) var(--lk-soft);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* círculo que preenche o botão a partir do ponto de entrada */
+.lk-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: var(--sx);
+  top: var(--sy);
+  width: var(--d);
+  height: var(--d);
+  margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2);
+  border-radius: 50%;
+  background: var(--lk-blue);
+  transform: scale(0);
+  transition: transform var(--lk-sweep) var(--lk-soft);
+  pointer-events: none;
+}
+
+.lk-btn.is-hover,
+.lk-btn:focus-visible {
+  color: var(--lk-white);
+  border-color: var(--lk-blue);
+  box-shadow: 0 14px 34px rgba(93, 145, 177, .35);
+  transition-delay: .12s, .12s, .12s;
+}
+.lk-btn.is-hover::before,
+.lk-btn:focus-visible::before { transform: scale(1); }
+
+.lk-btn:focus-visible { outline: 2px solid var(--lk-white); outline-offset: 3px; }
+
+/* sem mouse (celular): o preenchimento acontece ao tocar */
+@media (hover: none) {
+  .lk-btn:active { color: var(--lk-white); border-color: var(--lk-blue); }
+  .lk-btn:active::before { transform: scale(1); }
+}
+
+/* Botão principal: azul, varre para branco */
+.lk-btn--primary {
+  background: var(--lk-blue);
+  border-color: var(--lk-blue);
+  color: var(--lk-white);
+}
+.lk-btn--primary::before { background: var(--lk-white); }
+.lk-btn--primary.is-hover,
+.lk-btn--primary:focus-visible {
+  color: var(--lk-black);
+  border-color: var(--lk-white);
+  box-shadow: 0 14px 34px rgba(255, 255, 255, .18);
+  transition-delay: .12s, .12s, .12s;
+}
+@media (hover: none) {
+  .lk-btn--primary:active { color: var(--lk-black); border-color: var(--lk-white); }
+}
+
+/* conteúdo */
+.lk-ico {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+.lk-txt {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lk-main {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.lk-sub {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.35;
+  opacity: .72;
+  overflow-wrap: anywhere;
+}
+.lk-arrow {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  opacity: .55;
+  transition: transform var(--lk-fade) var(--lk-soft), opacity var(--lk-fade) var(--lk-soft);
+}
+.lk-btn.is-hover .lk-arrow,
+.lk-btn:focus-visible .lk-arrow { transform: translateX(3px); opacity: 1; }
+
+/* ---------- Rodapé ---------- */
+.lk-foot {
+  margin-top: 44px;
+  text-align: center;
+}
+.lk-foot a {
+  display: inline-block;
+  padding: 6px 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lk-blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(93, 145, 177, .5);
+  transition: color .2s, border-color .2s;
+}
+.lk-foot a:hover,
+.lk-foot a:focus-visible { color: var(--lk-white); border-color: var(--lk-white); outline: none; }
+.lk-foot p {
+  margin: 18px 0 0;
+  font-size: 12px;
+  color: #7d8a93;
+}
+
+/* ---------- Entrada em sequência ---------- */
+@keyframes lk-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.lk-head,
+.lk-group,
+.lk-foot { animation: lk-in .6s var(--lk-ease) both; }
+.lk-group:nth-of-type(1) { animation-delay: .10s; }
+.lk-group:nth-of-type(2) { animation-delay: .20s; }
+.lk-group:nth-of-type(3) { animation-delay: .30s; }
+.lk-foot { animation-delay: .40s; }
+
+@media (max-width: 380px) {
+  .lk { padding: 40px 14px 32px; }
+  .lk-btn { padding: 14px 18px; gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lk-head, .lk-group, .lk-foot { animation: none; }
+  .lk-btn, .lk-btn::before, .lk-arrow, .lk-lang a.glink { transition: none; }
+}

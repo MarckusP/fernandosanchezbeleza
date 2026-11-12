@@ -9,10 +9,13 @@ Site do salão **Fernando Sanchez Beleza** (Orlando, FL), migrado de WordPress +
 ├── index.html                      Home
 ├── lp-fernandosanchez-whatsapp/    LP de agendamento pelo WhatsApp
 ├── blog/visagismo-o-que-e/         Post sobre visagismo
+├── links/                          Página de links (redes, agendamento, endereço, contato)
 ├── 404.html                        Página de erro
 ├── assets/
 │   ├── css/brand.css               Estilos das seções novas (fsb-*) e efeitos
+│   ├── css/links.css               Estilos da página de links
 │   ├── js/fsb.js                   Animações das seções novas e efeitos de luz
+│   ├── js/links.js                 Efeito magnético dos botões da página de links
 │   ├── img/                        Imagens novas (visagismo, equipe)
 │   ├── fonts/ vendor/              Fontes e bibliotecas locais
 │   └── wp-content/ wp-includes/    CSS/JS/imagens do tema e do Elementor (arquivos comuns, sem WordPress)
